@@ -23,7 +23,6 @@ include_directories(${Qt5Widgets_INCLUDES} ${Boost_INCLUDE_DIRS} ${CMAKE_CURRENT
 
 # We need add -DQT_WIDGETS_LIB when using QtWidgets in Qt 5.
 add_definitions(${Qt5Widgets_DEFINITIONS})
-add_definitions(-DBOOST_ERROR_CODE_HEADER_ONLY)
 
 # Executables fail to build with Qt 5 in the default configuration
 # without -fPIE. We add that here.

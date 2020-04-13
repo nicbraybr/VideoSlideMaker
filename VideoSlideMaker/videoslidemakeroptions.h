@@ -11,6 +11,8 @@ public:
     VideoSlideMakerOptions(int argc, char *argv[]);
 
     std::string directory;
+    int height;
+    int width;
 };
 
 #endif // VIDEOSLIDEMAKEROPTIONS_H

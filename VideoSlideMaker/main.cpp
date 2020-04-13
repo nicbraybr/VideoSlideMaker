@@ -12,13 +12,14 @@ int main(int argc, char *argv[])
 {
     QApplication a(argc, argv);
 
-
     VideoSlideMakerOptions vsm_options(argc, argv);
 
     if (!boost::filesystem::is_directory(vsm_options.directory))
     {
         std::cout << vsm_options.directory << " is not a valid directory" << std::endl;
     }
+
+    VideoSlideMaker vsm(vsm_options);
 
     return a.exec();
 }

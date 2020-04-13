@@ -13,7 +13,7 @@ find_package(Qt5Widgets REQUIRED)
 
 # The Qt5Widgets_INCLUDES also includes the include directories for
 # dependencies QtCore and QtGui
-include_directories(${Qt5Widgets_INCLUDES} ${Boost_INCLUDE_DIRS} ${CMAKE_CURRENT_SOURCE_DIR} ${CMAKE_CURRENT_BINARY_DIR} )
+include_directories(${Qt5Widgets_INCLUDES} ${CMAKE_CURRENT_SOURCE_DIR} ${CMAKE_CURRENT_BINARY_DIR} )
 
 # We need add -DQT_WIDGETS_LIB when using QtWidgets in Qt 5.
 add_definitions(${Qt5Widgets_DEFINITIONS})
@@ -23,16 +23,18 @@ add_definitions(${Qt5Widgets_DEFINITIONS})
 set(CMAKE_CXX_FLAGS "${Qt5Widgets_EXECUTABLE_COMPILE_FLAGS}")
 
 SET(VideoSlideMakerGui_SOURCES
+    videoslidemakerpresenter.cpp
     videoslidemakerwindow.cpp)
 
 SET(VideoSlideMakerGui_HEADERS
+    videoslidemakerpresenter.h
     videoslidemakerwindow.h)
 
 SET(VideoSlideMakerGui_FORMS
     videoslidemakerwindow.ui)
 
-QT5_WRAP_CPP(VideoSlideMakerGui_HEADERS_MOC ${VideoSlideMaker_HEADERS})
-QT5_WRAP_UI(VideoSlideMakerGui_FORMS_HEADERS ${VideoSlideMaker_FORMS})
+QT5_WRAP_CPP(VideoSlideMakerGui_HEADERS_MOC ${VideoSlideMakerGui_HEADERS})
+QT5_WRAP_UI(VideoSlideMakerGui_FORMS_HEADERS ${VideoSlideMakerGui_FORMS})
 
 ADD_EXECUTABLE(VideoSlideMakerGui
     ${VideoSlideMakerGui_SOURCES}
