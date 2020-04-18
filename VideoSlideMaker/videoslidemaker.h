@@ -10,7 +10,9 @@ public:
 
 private:
     void parse_files(std::string directory);
+    void add_videos();
 
+    std::vector<std::string> files;
 };
 
 #endif // VIDEOSLIDEMAKER_H

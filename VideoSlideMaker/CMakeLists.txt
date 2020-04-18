@@ -1,4 +1,5 @@
 cmake_minimum_required(VERSION 2.8.12)
+set(CMAKE_PREFIX_PATH "/usr/lib/x86_64-linux-gnu/cmake")
 
 PROJECT(VideoSlideMaker)
 
@@ -10,6 +11,10 @@ set(CMAKE_INCLUDE_CURRENT_DIR ON)
 
 # Widgets finds its own dependencies (QtGui and QtCore).
 find_package(Qt5Widgets REQUIRED)
+FIND_PACKAGE( Qt5Multimedia REQUIRED )
+FIND_PACKAGE( Qt5MultimediaWidgets REQUIRED )
+SET(QT_USE_QTMULTIMEDIA TRUE)
+SET(QT_USE_QTMULTIMEDIAWIDGETS TRUE)
 
 # Other finds
 find_package(Boost COMPONENTS
@@ -46,6 +51,8 @@ ADD_EXECUTABLE(VideoSlideMaker
     ${VideoSlideMaker_HEADERS_MOC}
     ${VideoSlideMaker_FORMS_HEADERS}
     )
+
+QT5_USE_MODULES (VideoSlideMaker Multimedia MultimediaWidgets)
 
 # The Qt5Widgets_LIBRARIES variable also includes QtGui and QtCore
 TARGET_LINK_LIBRARIES(VideoSlideMaker ${Qt5Widgets_LIBRARIES} ${Boost_LIBRARIES})
